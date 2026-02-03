@@ -1,0 +1,137 @@
+ORPHANED MARKDOWN FILES ANALYSIS REPORT
+========================================
+
+Project: smc-ha-doc
+Analysis Date: 2024
+Script: find_orphans.py
+
+EXECUTIVE SUMMARY
+=================
+
+Total Markdown Files Scanned: 61
+Referenced Files: 58
+Orphaned Files: 3
+Coverage: 95.1% of files are referenced
+
+METHODOLOGY
+===========
+
+1. Scanned all markdown files (*.md) in the project recursively
+2. Extracted all markdown links [text](url) from each file
+3. Properly decoded URL-encoded characters (e.g., %20 → space)
+4. Resolved relative paths from each markdown file's location
+5. Identified files not referenced by any other markdown file
+6. Generated ORPHAN.md with detailed list
+
+KEY FEATURES
+============
+
+✓ URL Decoding: Properly handles encoded characters in links
+✓ Relative Path Resolution: Resolves paths relative to source file
+✓ Case-Sensitive Matching: Exact filename matching
+✓ External Link Filtering: Ignores http://, https://, ftp:// URLs
+✓ Self-Reference Detection: Files referencing themselves still count as orphaned
+
+ORPHANED FILES DETAILS
+======================
+
+1. README.md
+   Location: Root directory
+   Type: Entry Point Document
+   Reason: Main documentation entry point, accessed directly
+   Status: EXPECTED - This is the primary entry document
+   Action: No action needed
+
+2. CHANGELOG.md
+   Location: Root directory
+   Type: Standalone Document
+   Reason: Project changelog, typically referenced externally
+   Status: EXPECTED - Standard repository document
+   Action: No action needed
+
+3. .internal/TAGS.md
+   Location: .internal/ directory
+   Type: Internal Metadata
+   Reason: Internal documentation/metadata file
+   Status: EXPECTED - Internal use only
+   Action: No action needed
+
+VERIFICATION EXAMPLES
+=====================
+
+Referenced Files (Examples):
+- "How to browse the documentation locally.md"
+  ✓ Referenced by: README.md (with URL encoding: How%20to%20browse%20...)
+
+- "installation.md"
+  ✓ Referenced by: README.md, upgrade.md, reset server setup.md
+
+- "gui-administration-admin-commands.md"
+  ✓ Referenced by: Multiple GUI command files
+
+Properly Handled URL Encoding:
+- Link: "How%20to%20browse%20the%20documentation%20locally.md"
+  Decoded to: "How to browse the documentation locally.md"
+  Status: ✓ File found and marked as referenced
+
+FINDINGS
+========
+
+All Orphaned Files Are Expected:
+- README.md: Main entry point (intentionally orphaned)
+- CHANGELOG.md: Standard repository file (intentionally orphaned)
+- .internal/TAGS.md: Internal metadata (intentionally orphaned)
+
+No Action Required:
+All orphaned files serve legitimate purposes as entry points or
+standalone documents that are typically accessed through repository
+interfaces rather than internal documentation links.
+
+RECOMMENDATIONS
+===============
+
+1. README.md
+   - Keep as orphaned (main entry point)
+   - Consider adding navigation links from other docs if needed
+
+2. CHANGELOG.md
+   - Keep as orphaned (accessed via repository)
+   - Could be linked from README.md if version history is important
+
+3. .internal/TAGS.md
+   - Keep as orphaned (internal use)
+   - No action needed
+
+TECHNICAL NOTES
+===============
+
+Script Implementation:
+- Language: Python 3
+- Dependencies: Standard library only (pathlib, re, urllib.parse)
+- Input: All *.md files in project tree
+- Output: ORPHAN.md file at project root
+
+Link Detection Pattern:
+- Regex: \[([^\]]*)\]\(([^)]+)\)
+- Matches: [text](url) format
+- Excludes: External URLs (http://, https://, ftp://)
+- Handles: URL-encoded characters, anchors (#fragments)
+
+Path Resolution:
+- Base: Each markdown file's directory
+- Method: Relative path resolution
+- Validation: Case-sensitive file existence check
+
+CONCLUSION
+==========
+
+The orphan detection analysis completed successfully. All 3 orphaned
+files are intentionally standalone documents that serve as entry points
+or repository metadata. No documentation structure issues were found.
+
+The remaining 58 markdown files are properly interlinked, creating a
+well-connected documentation structure with 95.1% internal connectivity.
+
+========================================
+End of Report
+========================================

@@ -1,0 +1,78 @@
+Command:  python3 .internal/validate_links.py
+
+Scanning for markdown files in: /data/DEV-SMC/GH/smc-ha-doc
+Found 62 markdown files
+✗ README.md
+  - Invalid .md links: 1
+✓ How to browse the documentation locally.md
+✓ LICENSE.md
+✓ CHANGELOG.md
+✓ .internal/TAGS.md
+✓ .internal/ORPHAN.md
+✓ docs/api-automation/smc-api-db-replication-exclusion.md
+✓ docs/api-automation/smc-api-system-state.md
+✓ docs/api-automation/smc-api.md
+✓ docs/api-automation/smc-api-audit-replication.md
+✓ docs/api-automation/smc-python.md
+✓ docs/api-automation/smc-api-db-replication.md
+✓ docs/user-manual/upgrade-with-downtime.md
+✓ docs/user-manual/command-line-administration.md
+✓ docs/user-manual/gui-administration.md
+✓ docs/user-manual/database-replication-states.md
+✓ docs/user-manual/gui-administration-admin-window.md
+✓ docs/user-manual/upgrade-no-downtime.md
+✓ docs/user-manual/backup-management.md
+✓ docs/user-manual/installation-information.md
+✓ docs/user-manual/licensing.md
+✓ docs/user-manual/troubleshooting.md
+✓ docs/user-manual/upgrade.md
+✓ docs/user-manual/gui-administration-main-window.md
+✓ docs/user-manual/installation.md
+✓ docs/user-manual/gui-administration-admin-commands.md
+✓ docs/user-manual/gui-administration-connection.md
+✓ docs/user-manual/gui-commands/Audit replication Diagnostic.md
+✓ docs/user-manual/gui-commands/Database replication Diagnostic.md
+✓ docs/user-manual/gui-commands/Global servers diagnostic.md
+✓ docs/user-manual/gui-commands/Audit full scan.md
+✓ docs/user-manual/gui-commands/Exclude server from replication.md
+✓ docs/user-manual/gui-commands/Audit scan.md
+✓ docs/user-manual/gui-commands/Disabling Audit replication.md
+✓ docs/user-manual/gui-commands/Server Activation.md
+✓ docs/user-manual/gui-commands/Standby server initialization.md
+✓ docs/user-manual/troubleshooting/split-brain-setup.md
+✓ docs/user-manual/troubleshooting/cannot-access-active-server.md
+✓ docs/user-manual/troubleshooting/postgresql-log-error-in-replication-or-status.md
+✓ docs/user-manual/troubleshooting/no-standby-server-initialized.md
+✓ docs/user-manual/troubleshooting/server-switch-interrupted.md
+✓ docs/user-manual/troubleshooting/standby-server-on-hold.md
+✓ docs/user-manual/troubleshooting/server-not-accessible.md
+✓ docs/user-manual/console-commands/01 - Standby server - replication status.md
+✓ docs/user-manual/console-commands/02 - Certification and Security Information.md
+✓ docs/user-manual/console-commands/03 - Check replication connectivity.md
+✓ docs/user-manual/console-commands/022 - Standby server connection setup.md
+✓ docs/user-manual/console-commands/021 - Standby Server Certification.md
+✓ docs/user-manual/console-commands/04 - Standby server initialization.md
+✓ docs/user-manual/gui-commands/advanced/Force Server Activation.md
+✓ docs/user-manual/gui-commands/advanced/Set Standby and Stop Replication.md
+✓ docs/user-manual/gui-commands/advanced/Set Standby.md
+✓ docs/user-manual/gui-commands/advanced/Stop Replication.md
+✓ docs/user-manual/gui-commands/advanced/Refresh PG Setup.md
+✓ docs/user-manual/console-commands/advanced-commands/Server activation.md
+✓ docs/user-manual/console-commands/advanced-commands/Server exclusion.md
+✓ docs/user-manual/console-commands/advanced-commands/setup pg.md
+✓ docs/user-manual/console-commands/advanced-commands/Force standby mode.md
+✓ docs/user-manual/console-commands/advanced-commands/Stop replication.md
+✓ docs/user-manual/console-commands/advanced-commands/cleanup - garbage collector.md
+✓ docs/user-manual/console-commands/advanced-commands/reset server setup.md
+✓ docs/user-manual/console-commands/advanced-commands/change internal replication password.md
+
+============================================================
+SUMMARY
+============================================================
+Total markdown files processed: 62
+Files with invalid links: 1
+Total invalid .md links marked: 1
+Total invalid .png links marked: 0
+
+Modified files:
+  - README.md
