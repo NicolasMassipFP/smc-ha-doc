@@ -440,7 +440,11 @@ report = generate_status_report()
 print(report)
 
 # Optionally save to file
-with open(f"status-report-{datetime.now().strftime('%Y%m%d')}.txt", 'w') as f:
+import os
+output_dir = '/var/log/smc-reports'
+os.makedirs(output_dir, exist_ok=True)
+report_file = os.path.join(output_dir, f"status-report-{datetime.now().strftime('%Y%m%d')}.txt")
+with open(report_file, 'w') as f:
     f.write(report)
 
 session.logout()
