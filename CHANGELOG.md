@@ -1,5 +1,5 @@
 # 1.0 (in progress)
 
-initial version
-- screenshots from SMC 7.3, 7.4 or 7.5
-- applicable from SMC 7.3.3
+Initial version:
+- Screenshots from SMC versions 7.3, 7.4, and 7.5
+- Applicable from SMC version 7.3.3 and later

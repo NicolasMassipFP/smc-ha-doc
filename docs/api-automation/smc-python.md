@@ -1,6 +1,6 @@
 # Python SDK Guide
 
-Comprehensive guide for using the smc-python SDK for SMC automation.
+This guide provides comprehensive documentation for using the smc-python SDK to automate SMC operations.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Comprehensive guide for using the smc-python SDK for SMC automation.
 
 - Python 3.6 or higher
 - pip package manager
-- Network access to SMC
+- Network access to the SMC server
 
 ### Install from PyPI
 
@@ -59,7 +59,7 @@ session.logout()
 
 ### Context Manager
 
-Use context manager for automatic session cleanup:
+Use the context manager for automatic session cleanup:
 
 ```python
 from smc import session
@@ -537,11 +537,11 @@ print(response.status_code)
 ### 1. Session Management
 
 ```python
-# Always use context manager when possible
+# Always use the context manager when possible
 with session.login(url='...', api_key='...') as s:
     # Your code here
     pass
-# Session automatically closed
+# Session is automatically closed
 
 # Or explicitly logout
 try:
@@ -567,13 +567,13 @@ except SMCException as e:
 ### 3. Efficient Queries
 
 ```python
-# Use filters to reduce results
+# Use filters to reduce the number of results
 hosts = Host.objects.filter('web-*')
 
 # Use limit for pagination
 hosts = Host.objects.all(limit=100)
 
-# Iterate efficiently
+# Iterate efficiently over large result sets
 for host in Host.objects.iterator():
     print(host.name)
 ```
@@ -596,14 +596,14 @@ session.login(url='...', api_key='...')
 ### Connection Issues
 
 ```python
-# Disable SSL verification for self-signed certs
+# Disable SSL verification for self-signed certificates
 session.login(
     url='https://smc.example.com:8082',
     api_key='your-api-key',
     verify=False
 )
 
-# Increase timeout
+# Increase timeout for slower connections
 session.login(
     url='https://smc.example.com:8082',
     api_key='your-api-key',

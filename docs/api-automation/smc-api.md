@@ -1,6 +1,6 @@
 # API Overview
 
-This document provides an overview of the SMC API architecture and core concepts.
+This document provides an overview of the SMC API architecture and its core concepts.
 
 ## API Architecture
 
@@ -99,12 +99,12 @@ smc-api-key: your-api-key-here
 
 ### API Key Generation
 
-Generate API keys in SMC:
+To generate API keys in SMC:
 
 1. Navigate to **Administration** > **Access Rights**
-2. Select user or create API user
+2. Select an existing user or create a new API user
 3. Click **Generate API Key**
-4. Save the key securely (shown only once)
+4. Save the key securely (the key is shown only once)
 
 ### API Key Usage
 
@@ -116,7 +116,7 @@ smc-api-key: SGVsbG8gV29ybGQhIFRoaXMgaXMgYW4gZXhhbXBsZSBBUEkga2V5
 
 ### Session Management
 
-For multiple operations, establish a session:
+For operations that require multiple API calls, establish a session:
 
 ```python
 from smc import session
@@ -139,12 +139,12 @@ session.logout()
 
 ### API Access in HA
 
-When SMC is in HA mode:
+When SMC is configured in High Availability mode:
 
-- Use the **Virtual IP (VIP)** for API access
-- API requests are automatically routed to the active node
+- Use the **Virtual IP (VIP)** address for all API access
+- API requests are automatically routed to the currently active node
 - Sessions persist across failover events
-- Use retry logic for transient failover issues
+- Implement retry logic to handle transient issues during failover
 
 ```python
 import time
@@ -169,7 +169,7 @@ def connect_with_retry(max_retries=3):
 
 ### Cluster Status via API
 
-Check HA cluster status:
+To check the HA cluster status:
 
 ```python
 from smc.administration.system import System
@@ -238,13 +238,13 @@ except SMCException as e:
 
 ## Pagination
 
-For large result sets, use pagination:
+For large result sets, use pagination parameters:
 
 ```http
 GET /6.10/elements/host?limit=50&offset=100
 ```
 
-Response includes pagination metadata:
+The response includes pagination metadata:
 
 ```json
 {
@@ -276,14 +276,14 @@ for host in hosts:
 
 ## Best Practices
 
-1. **Use the VIP**: Always connect to the HA Virtual IP
-2. **Implement Retry Logic**: Handle transient failures during failover
-3. **Reuse Sessions**: Minimize session creation overhead
-4. **Handle Rate Limits**: Implement backoff strategies
-5. **Validate Input**: Validate data before sending to API
-6. **Log API Calls**: Maintain audit trail of API operations
-7. **Secure API Keys**: Store keys securely, rotate regularly
-8. **Use Versioning**: Specify API version in all requests
+1. **Use the VIP**: Always connect using the HA Virtual IP address
+2. **Implement Retry Logic**: Handle transient failures that may occur during failover
+3. **Reuse Sessions**: Minimize session creation overhead by reusing sessions
+4. **Handle Rate Limits**: Implement exponential backoff strategies for rate limit responses
+5. **Validate Input**: Validate all data before sending requests to the API
+6. **Log API Calls**: Maintain an audit trail of all API operations
+7. **Secure API Keys**: Store keys securely and rotate them regularly
+8. **Use Versioning**: Specify the API version in all requests for consistency
 
 ## Next Steps
 

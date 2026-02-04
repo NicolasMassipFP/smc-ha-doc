@@ -12,7 +12,7 @@ This documentation applies only to NGFW **SMC versions 7.3.0 and later** that no
 
 # NGFW SMC HA Management Servers Documentation
 
-Personal documentation about NGFW SMC (Security Management Center) High Availability setup.
+This repository provides personal documentation for NGFW SMC (Security Management Center) High Availability setup.
 
 > How to download and read this documentation locally
 > 
@@ -23,7 +23,7 @@ Personal documentation about NGFW SMC (Security Management Center) High Availabi
 
 ## 📚 Main Documentation Sections
 
-This section provides a comprehensive user manual for SMC High Availability setup.
+This section provides a comprehensive user manual for configuring and managing SMC High Availability.
 
 > ⚠️ Before setting up SMC High Availability (HA), ensure that you have:
 >  - Two to five compatible SMC servers
@@ -39,7 +39,7 @@ This section provides a comprehensive user manual for SMC High Availability setu
 
 ## 🔧 HA Management Automation
 
-This section provides comprehensive documentation automation capabilities in High Availability environments.
+This section provides comprehensive documentation for automation capabilities in High Availability environments.
 
 ### REST API (SMC API)
 
@@ -52,9 +52,9 @@ This section provides comprehensive documentation automation capabilities in Hig
 ## About SMC HA
 
 SMC Management High Availability provides:
-- Manual failover between SMC Management servers
-- Real-time data synchronization: management database, audits
-- Zero-downtime management capabilities
+- Manual failover capability between SMC Management servers
+- Real-time data synchronization for the management database and audits
+- Zero-downtime management capabilities during failover operations
 
 ## Contributing
 
