@@ -8,7 +8,7 @@ The Management Client provides a dedicated wizard that performs the switch safel
 #### How to perform a server activation
 
 - Through the Management Client:  [Server Activation](../../gui-commands/Server%20Activation.md)
-- Through the SMC API: [SMC API - Replication](smc-api-db-replication-activation.md) -- ``Set Active`` entry point rely on the implementation than the Management Client.
+- Through the SMC API: [SMC API - Replication](../../../api-automation/smc-api-db-replication-activation.md) -- ``Set Active`` entry point rely on the implementation than the Management Client.
 
 ---
 
