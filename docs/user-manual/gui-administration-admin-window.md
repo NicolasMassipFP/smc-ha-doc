@@ -7,6 +7,7 @@ When this dialog is open, information from all servers is aggregated to provide 
 > **Note:** Using direct command‑line operations does not offer this protection. Therefore, using the Management Client is strongly recommended instead of running console commands individually on each server.
 
 When an action that modifies the HA setup is executed, **all refreshes and interactions in the window are temporarily blocked for 10 to 30 seconds** (depending on the action). This delay ensures that SMC Monitoring has enough time to detect and reflect the impact of the change.
+
 ![Warning header](screens/750_replication_admin_warning_header.png)
 # Header
 ## Currently Connected to
