@@ -3,6 +3,10 @@ entry point:  ``/ha/exclude``
 
 **GUI equivalent:** [Exclude from Replication](../user-manual/gui-commands/Exclude%20server%20from%20replication.md)
 
+| Known issue   | SMC version 7.3.0 to 7.3.3, 7.4.0 to 7.4.1                    |
+| ------------- | ------------------------------------------------------------- |
+| ``SMC-65140`` | Excluding an offline Standby Server through the SMC API fails |
+
 A server to exclude must be specified **using one, and only one**, of the following:
 
 - the `server_name` parameter
