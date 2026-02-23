@@ -1,3 +1,7 @@
+# smc_733_741_2
+
+update installation/upgrade procedure with Forcepoint Hub link  
+minor update for feedback
 # smc_733_741_1
 
 This is the initial version.

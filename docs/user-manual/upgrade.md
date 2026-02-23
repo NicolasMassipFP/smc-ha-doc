@@ -1,28 +1,30 @@
+
 > fresh installation is covered by a dedicated page [installation](installation.md)
 
-| Simple but with downtime<br>       (recommended)  | Strict without downtime                            |
-| ------------------------------------------------- | -------------------------------------------------- |
-| [upgrade with downtime](upgrade-with-downtime.md) | [upgrade without downtime](upgrade-no-downtime.md) |
+---
 
-Upgrading an HA Management setup can be performed with minimal downtime of the Management Service, but the procedure must be followed precisely and can be error‑prone.  
-A simpler alternative is to stop the Management Service during the upgrade, which greatly reduces the strict execution requirements of the procedure.
-# Preparation - upgrade method selection
+The official documentation does not currently include an upgrade procedure for HA Management setups.  
 
-Before upgrading, verify that replication is functioning correctly.
+However, **article _000012321_ on Forcepoint Hub** provides the required guidance.
 
-⚠️ If replication is down for any reason and you did not detect it beforehand, use the  
-**upgrade with downtime** procedure.
+https://support.forcepoint.com/s/article/How-to-Migrate-SMC-HA-Setup-to-New-Hosts
 
-A Management Server backup is optional, but this is a good moment to create one. It is not required for the upgrade itself, but it is useful if you need to revert. This is a standard Management Server backup that can be performed through the Client or from the command line.
+---
+## What if ?
 
-If downtime of the Management Server is acceptable (the infrastructure continues to operate normally even when management is stopped), use the [upgrade with downtime](upgrade-with-downtime.md)  procedure.
+If, for any reason, the Standby Servers remain running and are not excluded while the Active Server is being upgraded, they will generate errors in monitoring and diagnostics. This may give the impression that the system is unstable or may obscure real issues.
+### Cancel Active Server Upgrade
 
-If server switching is never performed in your environment (meaning the Standby Servers are used only as real‑time incremental backups), use the [upgrade with downtime](upgrade-with-downtime.md)  procedure.
+If the upgrade of the Active Server is cancelled and the system is reverted, then once the Active Server is back online with its previous configuration, replication will most likely be broken—unless the cancellation occurred very early in the process.
+- If replication is still declared on the Active Server, exclude all Standby Servers.  
+See [Exclude Server](gui-commands/Exclude%20server%20from%20replication.md)).
+- Open the Client and trigger Standby Server initialization for each server.  
+See [Init Standby replication](gui-commands/Standby%20server%20initialization.md).
 
-**IMPORTANT NOTICE:**
+> If you want to restore a backup, see [Backup Management](backup-management.md)
+### A Standby Server Has Been Activated
 
-> **Even when using a downtime-based upgrade**, if a network issue occurs or the upgrade of the first (Active) server fails, the “not yet upgraded” server may automatically become active in order to restart without delay.
+If, for any reason, you activated a Standby Server to perform an urgent operation on the system, you must decide how to proceed once the upgrade resumes. The choice depends on the nature of the action performed:
 
-If minimizing downtime is a priority, use the [upgrade without downtime](upgrade-no-downtime.md) procedure.  Be aware that you must follow each step carefully to truly avoid downtime.  
-Note that the **only risk is experiencing downtime**—nothing else.
-
+- **Option 1:** After upgrading the previous Active Server, switch its role to Standby, shut it down, and then upgrade the server that was temporarily promoted during step 2 of the upgrade procedure.
+- **Option 2:** If the urgent change made on the temporarily activated server can be discarded, revert its role to Standby and continue with the standard upgrade process.

@@ -2,6 +2,15 @@
 # Installation Guide (fresh install)
 > upgrade is covered by a dedicated page [upgrade](upgrade.md)
 
+A good starting point is to read the corresponding page on Forcepoint Hub.
+
+---
+
+https://support.forcepoint.com/s/article/Video-Additional-SMC-High-Availability-Server-Installation-Using-Linux-Command-Line
+
+---
+
+> The page below highlights what is specific to HA Management Server upgrades and points to the corresponding sections in this documentation.
 ## **1st Server** _(Active server at installation time)_
 This is a standard SMC installation. No specific HA‑related option needs to be selected.
 
