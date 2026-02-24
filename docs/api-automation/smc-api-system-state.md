@@ -1,3 +1,13 @@
+
+| entry point                             | summary                                                      |
+| --------------------------------------- | ------------------------------------------------------------ |
+| ``/ha``                                 | identify all management servers                              |
+| ``/ha/diagnostic``                      | global server diagnotics                                     |
+| ``/ha/audit_replication_diagnostic``    | detail diagnostic on audit replication                       |
+| ``/ha/database_replication_diagnostic`` | detail diagnostic on database replication                    |
+| since SMC 7.3.4, 7.4.2, and 7.5.0       |                                                              |
+| ``all_servers_replication_states``      | replication state of all Management Servers in a single call |
+
 ## Check which server is active, discovering the setup
 
 entry point: ``/ha``
@@ -20,7 +30,7 @@ Example result:
 ```
 ## Servers Diagnostic — Check That the System Is “OK”
 
-entry point: /ha/diagnostic
+entry point: ``/ha/diagnostic``
 
 **GUI equivalent:**  [Servers diagnostic](../user-manual/gui-commands/Global%20servers%20diagnostic.md)
 
@@ -52,7 +62,7 @@ For each server there is a message block that provides information:
 ```
 ## Audit replication diagnostic
 
-entry point: /ha/audit_replication_diagnostic
+entry point: ``/ha/audit_replication_diagnostic``
 
 **GUI equivalent:** [Audit replication Diagnostic](../user-manual/gui-commands/Audit%20replication%20Diagnostic.md) -- includes an explanation of the diagnostic information.
 
@@ -71,7 +81,7 @@ Example on the Active Server shortly after startup:
 ```
 ## Database replication diagnostic
 
-entry point: /ha/database_replication_diagnostic
+entry point: ``/ha/database_replication_diagnostic``
 
 **GUI equivalent:** [Database replication Diagnostic](../user-manual/gui-commands/Database%20replication%20Diagnostic.md) -- includes an explanation of the diagnostic information.
 
@@ -91,5 +101,39 @@ Example on the Active Server:
 		"[PG-PUB|-->127.0.0.1  on port 50014|sub_smc1174|pid:289006|Since:2026-02-17 16:26:20+0100",
 		"[PG-PUB|-->127.0.0.1  on port 51562|sub_smc1296|pid:217987|Since:2026-02-17 15:24:32+0100"],
 	"standby_replication_subscription": "0"
+}
+```
+
+## All servers database replication state
+
+entry point: ``all_servers_replication_states``
+
+>**Available since SMC 7.3.4, 7.4.2, and 7.5.0.**  
+  For older versions, use `/ha/database_replication_diagnostic` on each server individually.
+
+**GUI equivalent:** Opening the [_SMC HA Administration_ dialog](../user-manual/gui-administration-admin-window.md).
+
+**Available only on the Active Server.**  
+The REST Client must be connected to the Active Server to initialize to perform this request.
+
+This entry point retrieves the replication state of all Management Servers in a single call.  
+It removes the need to connect to each server individually to request a database replication diagnostic.
+
+This call can also be used to monitor the progress of a new server activation or a standby server initialization.
+
+Example:
+```json
+{
+	"active_server_state": "[ACT_REP] Active database replication is enabled",
+	"standby_server_states": [
+		{
+			"server_name": "DK_MGT_2",
+			"state": "[STB_REP] Standby database replication is enabled"
+		},
+		{
+			"server_name": "HOST_MGT",
+			"state": "[STB_REP] Standby database replication is enabled"
+		}
+	]
 }
 ```

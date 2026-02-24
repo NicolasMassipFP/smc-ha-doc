@@ -1,4 +1,4 @@
-## Server Activation 
+## Server Activation request
 entry point:  ``/ha/set_active``
 
 **GUI equivalent:**  [Servers Activation](../user-manual/gui-commands/Server%20Activation.md)

@@ -1,4 +1,4 @@
-## Standby server initialization
+## Standby server initialization request
 entry point: ``/ha/full_replication``
 
 **GUI equivalent:** [Initialize Standby Replication](../user-manual/gui-commands/Standby%20server%20initialization.md) 
