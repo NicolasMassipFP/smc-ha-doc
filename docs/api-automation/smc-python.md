@@ -12,10 +12,15 @@ SMC Python is designed to support multiple SMC versions with a single library. A
 
 HA Administration is provided through the `HAManagement` class in `smc.core.ha_management` [HA Management class](smc-python-hamanagement-methods.md), which exposes the following primary methods:
 
-| State of the system / SMC API:  [State of the system](smc-api-system-state.md) | SMC API entry point |
-| ------------------------------------------------------------------------------ | ------------------- |
-| get_ha - Retrieves HA information                                              | ``/ha``             |
-| diagnostic - Returns replication status diagnostics                            | ``/ha/diagnostic``  |
+| State of the system / SMC API:  [State of the system](smc-api-system-state.md)                       | SMC API entry point                     |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| get_ha - Retrieves HA information                                                                    | ``/ha``                                 |
+| diagnostic - Returns replication status diagnostics                                                  | ``/ha/diagnostic``                      |
+| **SMC Python 1.0.33+**                                                                               |                                         |
+| database_replication_diagnostic - returns detailed information about the database replication state. | ``/ha/database_replication_diagnostic`` |
+| audit_replication_diagnostic - returns detailed information about the audit replication state.       | ``/ha/audit_replication_diagnostic``    |
+| **SMC Python 1.0.33+ / SMC 7.3.4+, 7.4.2+, 7.5.0+**                                                  |                                         |
+| all_servers_replication_diagnostic - return  the replication state of **all Management Servers**     | ``/ha/all_servers_replication_states``  |
 
 | Database replication administration          | SMC API entry point                                          |
 | -------------------------------------------- | ------------------------------------------------------------ |
@@ -27,5 +32,7 @@ HA Administration is provided through the `HAManagement` class in `smc.core.ha_m
 | exclude - Excludes a server from database replication | [Exclude Standby Server](smc-api-db-replication-exclusion.md) |
 | set_standby - Deactivates a management server         | [Force set Standby](smc-api-db-replication-set-standby.md)    |
 
-> _The current SMC Python release (1.0.32) does not cover the full set of HA Management API entry points provided by the SMC server, and some operations must therefore be performed through the SMC Client or direct SMC API calls._
-
+| Audit replication administration<br>**SMC Python 1.0.33+**                | SMC API entry point                                                                 |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| audit_scan - trigger an immediate scan                                    | [audit replication](smc-api-audit-replication.md) -  ``/ha/audit_scan_request``     |
+| audit_full_scan - reset the replication history trigger an immediate scan | [audit replication](smc-api-audit-replication.md) - ``/ha/audit_full_scan_request`` |
